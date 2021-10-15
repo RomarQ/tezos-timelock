@@ -5,6 +5,9 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
+  schedule:
+    # Prime the caches every Monday
+    - cron: 0 1 * * MON
 
 jobs:
   build:
@@ -16,10 +19,16 @@ jobs:
           - 4.12.0
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Use OCaml ${{ matrix.ocaml-compiler }}
-      uses: ocaml/setup-ocaml@v1.1.11
-      with:
-        ocaml-compiler: ${{ matrix.ocaml-compiler }}
-    - name: Setup environment
-      run: make setup
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Use OCaml ${{ matrix.ocaml-compiler }}
+        uses: ocaml/setup-ocaml@v1.1.11
+        with:
+          ocaml-compiler: ${{ matrix.ocaml-compiler }}
+
+      - name: Setup environment
+        run: make setup
+
+      - name: Build Javascript from Ocaml
+        run: make build

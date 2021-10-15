@@ -13,6 +13,7 @@ roots: [
   "dune.2.9.1"
   "js_of_ocaml-ppx.3.10.0"
   "ocaml-base-compiler.4.12.0"
+  "tezos-hacl-glue.10.2"
   "zarith_stubs_js.v0.14.0"
 ]
 installed: [
@@ -58,6 +59,7 @@ installed: [
   "sexplib0.v0.14.0"
   "stdlib-shims.0.3.0"
   "stringext.1.6.0"
+  "tezos-hacl-glue.10.2"
   "topkg.1.0.3"
   "uchar.0.0.2"
   "uri.4.2.0"
