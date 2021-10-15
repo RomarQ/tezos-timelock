@@ -1,0 +1,25 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        ocaml-compiler:
+          - 4.12.0
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use OCaml ${{ matrix.ocaml-compiler }}
+      uses: ocaml/setup-ocaml@v1.1.11
+      with:
+        ocaml-compiler: ${{ matrix.ocaml-compiler }}
+    - name: Setup environment
+      run: make setup

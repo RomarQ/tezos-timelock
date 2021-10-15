@@ -1,0 +1,10 @@
+(executable
+ (name timelock_js)
+ (modes js)
+ (preprocess (pps js_of_ocaml-ppx))
+ (libraries zarith_stubs_js js_of_ocaml tezos-hacl-glue js_of_ocaml-compiler tezos-hacl-glue-js data-encoding)
+ (js_of_ocaml (javascript_files hacl_stubs.js)))
+
+(rule
+ (targets hacl_stubs.js)
+ (action (copy %{lib:tezos-hacl-glue-js:hacl_stubs.js} hacl_stubs.js)))
