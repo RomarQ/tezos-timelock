@@ -1,0 +1,38 @@
+{
+  "name": "@smartpy/hacl-wasm",
+  "version": "0.0.3",
+  "description": "Javascript bindings for the KreMLin-extracted WebAssembly version of the HACL* cryptographic library",
+  "main": "api.js",
+  "directories": {
+    "doc": "doc/out"
+  },
+  "files": [
+		"api.js",
+    "api.json",
+    "shell.js",
+    "loader.js",
+    "loader.js",
+    "wasm_buffers.json"
+	],
+	"types": "api.d.ts",
+  "scripts": {
+    "build": "node build_wasm_buffers.js",
+    "test": "node api_test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/project-everest/hacl-star.git"
+  },
+  "keywords": [
+    "crypto",
+    "webassembly",
+    "verified"
+  ],
+  "author": "The HACL* team",
+  "readme": "README.md",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/project-everest/hacl-star/issues"
+  },
+  "homepage": "https://github.com/project-everest/hacl-star/tree/master/bindings/js#readme"
+}
