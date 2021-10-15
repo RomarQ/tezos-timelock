@@ -1,4 +1,3 @@
-
 SWITCH := smartpy_timelock
 COMPILER := ocaml-base-compiler.4.12.0
 
@@ -9,11 +8,16 @@ COMPILER := ocaml-base-compiler.4.12.0
 setup: export SWITCH := $(SWITCH)
 setup: export COMPILER := $(COMPILER)
 setup:
+	@echo "Setup environment"
 	@./scripts/setup.sh
 
 build: .env
 	@echo "Build Javascript from Ocaml"
-	@dune build lib_timelock/timelock_js.bc.js --release
+	@./scripts/build.sh
+
+test: .env
+	@echo "Test Javascript distributable"
+	@./scripts/test.sh
 
 clean: .env
 	@echo "Clean environment"

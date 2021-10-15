@@ -1,0 +1,14 @@
+{
+	"compilerOptions": {
+		"moduleResolution": "node",
+		"esModuleInterop": true,
+		"allowJs": true,
+		"declaration": true,
+		"emitDeclarationOnly": true,
+		"outDir": "types",
+	},
+	"include": [
+		"src",
+	],
+	"exclude": ["src/__test__"]
+}
