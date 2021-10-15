@@ -1,7 +1,9 @@
 import * as timelock from './timelock.generated';
 import * as hacl from '@smartpy/hacl-wasm';
 
-hacl.getInitializedHaclModule().then(hacl => globalThis._HACL = hacl);
+const globalScope = typeof globalThis !== "undefined" ? globalThis : (typeof window !== "undefined" ? window : global);
+
+hacl.getInitializedHaclModule().then(hacl => globalScope._HACL = hacl);
 
 interface ChestAndChestKey {
     chest: string,
@@ -18,7 +20,7 @@ const ensureHaclWasmLoaded = async (): Promise<void> => {
     let wait_milliseconds = 5000;
     while (wait_milliseconds) {
         // if _HACL exists in the global context, it means that the wasm module is already loaded
-        if (globalThis._HACL) return;
+        if (globalScope._HACL) return;
         // Wait a few milliseconds and check again
         wait_milliseconds -= milliseconds_per_try
         await new Promise(r => setTimeout(r, milliseconds_per_try));

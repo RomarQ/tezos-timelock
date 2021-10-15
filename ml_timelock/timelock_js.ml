@@ -76,7 +76,7 @@ let export_to_js s f =
 let[@ocaml.warning "-21"] () =
   (* Export public methods*)
   Js.Unsafe.eval_string
-    (Printf.sprintf "globalThis.exports = globalThis.exports || {}");
+    (Printf.sprintf "const globalScope = typeof globalThis !== 'undefined' ? globalThis : (typeof window !== 'undefined' ? window : global);globalScope.exports = globalScope.exports || {}");
   export_to_js "create_chest_and_chest_key" Interface.create_chest_and_chest_key;
   export_to_js "create_chest_key" Interface.create_chest_key;
   export_to_js "open_chest" Interface.open_chest

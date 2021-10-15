@@ -17,10 +17,7 @@
 		"build": "rollup -c",
 		"watch": "rollup -cw",
 		"test": "jest",
-		"ci-test": "CI=true jest --runInBand --detectOpenHandles",
-		"prettier": "prettier --list-different 'src/**/*.{js,ts}'",
-		"prettier:fix": "prettier --write 'src/**/*.{js,ts}'",
-		"lint": "eslint '*/**/*.{js,ts}' --quiet --fix"
+		"ci-test": "CI=true jest --runInBand --detectOpenHandles"
 	},
 	"dependencies": {
 		"@smartpy/hacl-wasm": "^0.0.3"
