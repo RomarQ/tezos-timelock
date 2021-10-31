@@ -1,8 +1,21 @@
+(library
+ (name timelock)
+ (modules timelock crypto_box)
+ (libraries tezos-hacl-glue data-encoding))
+
+(executables
+  (names timelock_unix)
+  (modes native)
+  (modules timelock_unix)
+  (libraries timelock base tezos-hacl-glue-unix)
+)
+
 (executable
  (name timelock_js)
  (modes js)
+ (modules timelock_js)
  (preprocess (pps js_of_ocaml-ppx))
- (libraries zarith_stubs_js js_of_ocaml tezos-hacl-glue js_of_ocaml-compiler tezos-hacl-glue-js data-encoding)
+ (libraries timelock zarith_stubs_js js_of_ocaml js_of_ocaml-compiler tezos-hacl-glue-js)
  (js_of_ocaml (javascript_files hacl_stubs.js)))
 
 (rule

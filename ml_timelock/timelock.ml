@@ -320,35 +320,3 @@ let chest_of_bytes bytes =
   else if Z.leq rsa_public min_rsa_modulus
   then failwith "rsa modulus is too small";
   chest
-
-let test () =
-  let payload = Hex.to_bytes (`Hex "05010000000b48454c4c4f20574f524c44")
-  and time = 2000 in
-  let chest, chest_key_1 = create_chest_and_chest_key ~payload ~time in
-  let chest_key_2 = create_chest_key ~time chest in
-  let opening_result_1 = open_chest chest chest_key_1 ~time in
-  let opening_result_2 = open_chest chest chest_key_2 ~time in
-
-  let result1 =
-    match opening_result_1 with
-    | Correct p -> Bytes.to_string p
-    | Bogus_cipher -> "Bogus_cipher"
-    | Bogus_opening -> "Bogus_opening"
-  in
-  let result2 =
-    match opening_result_2 with
-    | Correct p -> Bytes.to_string p
-    | Bogus_cipher -> "Bogus_cipher"
-    | Bogus_opening -> "Bogus_opening"
-  in
-
-  print_endline (Printf.sprintf "chest: %s" (bytes_of_chest chest));
-  print_newline ();
-  print_endline
-    (Printf.sprintf "chest_key: %s" (bytes_of_chest_key chest_key_1));
-  print_newline ();
-  print_endline (Printf.sprintf "result1: %s" result1);
-  print_newline ();
-  print_endline (Printf.sprintf "result2: %s" result2);
-
-  assert (opening_result_1 = opening_result_2)
