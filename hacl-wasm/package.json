@@ -1,20 +1,24 @@
 {
-  "name": "@smartpy/hacl-wasm",
-  "version": "0.0.3",
+  "name": "@tezwell/hacl-wasm",
+  "version": "0.0.4",
   "description": "Javascript bindings for the KreMLin-extracted WebAssembly version of the HACL* cryptographic library",
   "main": "api.js",
+  "publishConfig": {
+    "access": "public"
+  },
   "directories": {
     "doc": "doc/out"
   },
   "files": [
-		"api.js",
+    "api.js",
     "api.json",
     "shell.js",
     "loader.js",
     "loader.js",
-    "wasm_buffers.json"
-	],
-	"types": "api.d.ts",
+    "wasm_buffers.json",
+    "api.d.ts"
+  ],
+  "typings": "api.d.ts",
   "scripts": {
     "build": "node build_wasm_buffers.js",
     "test": "node api_test.js"

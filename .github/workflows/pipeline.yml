@@ -34,8 +34,8 @@ jobs:
       - name: Setup environment
         run: make setup
 
-      - name: Build Javascript from Ocaml
+      - name: Build executables and npm packages
         run: make build
 
-      - name: Test Javascript distributable
+      - name: Run Javascript test
         run: make test

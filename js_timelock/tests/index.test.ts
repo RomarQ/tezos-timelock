@@ -1,5 +1,5 @@
-import * as generated from '../timelock.generated';
-import Timelock from '../index';
+import * as generated from '../src/timelock.generated';
+import Timelock from '../src/index';
 
 // Wait for wasm to load
 describe("Test timelock", () => {
@@ -30,7 +30,7 @@ describe("Test timelock", () => {
         try {
             await Timelock.openChest(chest, chest_key, time);
             fail("expected to fail")
-        } catch (e) {
+        } catch (e: any) {
             expect(e[2].c).toMatch('rsa modulus is too small');
         }
     });

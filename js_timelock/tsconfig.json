@@ -1,13 +1,23 @@
 {
 	"compilerOptions": {
 		"moduleResolution": "node",
-		"esModuleInterop": true,
+		"module": "esnext",
+		"target": "es6",
+		"lib": ["es6", "es7", "dom"],
+		"pretty": true,
+		"strict": true,
 		"allowJs": true,
+		"alwaysStrict": true,
+		"noImplicitReturns": true,
+		"esModuleInterop": true,
 		"declaration": true,
+		"declarationDir": "dist/types",
 		"emitDeclarationOnly": true,
-		"outDir": "types",
 	},
 	"include": [
-		"src",
+		"./src"
+	],
+	"exclude": [
+		"./node_modules",
 	]
 }

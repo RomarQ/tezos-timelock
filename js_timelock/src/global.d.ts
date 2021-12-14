@@ -1,6 +1,4 @@
-declare global {
-    export interface Window {
-        _HACL?: any
-    }
-}
 export {};
+declare global {
+    var _HACL: any
+}

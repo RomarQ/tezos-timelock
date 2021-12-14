@@ -1,8 +1,7 @@
 import * as timelock from './timelock.generated';
-import * as hacl from '@smartpy/hacl-wasm';
+import * as hacl from '@tezwell/hacl-wasm';
 
 const globalScope = typeof globalThis !== "undefined" ? globalThis : (typeof window !== "undefined" ? window : global);
-
 hacl.getInitializedHaclModule().then(hacl => globalScope._HACL = hacl);
 
 interface ChestAndChestKey {
